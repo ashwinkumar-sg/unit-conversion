@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Switch = ({unitA, unitB, setUnitA, setUnitB, setOutput,setInput,input,calculate}) => {
+const Switch = ({unitA, unitB, setUnitA, setUnitB, setOutput,setInput}) => {
   const onSwitch = (event) => {
     event.preventDefault()
     setUnitA(unitB)

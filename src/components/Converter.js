@@ -12,10 +12,12 @@ const Converter = () => {
   
   const calculate = (input,unitA,unitB) =>{
     console.log(`${unitA}&${unitB}`)
-    let output = ""
+    if(unitA===unitB){
+      setOutput("")
+    }else{
     switch (`${unitA}&${unitB}`) {    
       case "kilogram&gram":
-        return input *1000
+        return input *1000;
 
       case "gram&kilogram":
         return input / 1000;
@@ -28,37 +30,47 @@ const Converter = () => {
       
       case "gram&ounce":
         return input / 28.359;
+        
 
       case "kilogram&ounce":
-        output = input / 0.02835;
+        return input / 0.02835;
+        
 
       case "meter&feet":
         return input * 3.281;
+        
              
       case "feet&meter":
         return input / 3.281;
         
+        
       case "feet&inches":
         return input *12;
+        
 
       case "inches&feet":
         return input / 12;
+        
 
       case "meter&inches":
         return input * 39.37;
+        
           
       case "inches&meter":
         return input / 39.37;
+        
           
       case "fahrenheit&celsius" :
-        return (input-32)*0.5556
+        return (input-32)*0.5556;
+        
 
       case "celsius&fahrenheit" :
         return (input*1.8)+32
+        
       default:
         break 
     }
-        
+  }
   }
 
   const changeUnitA = (e) => {
@@ -67,8 +79,12 @@ const Converter = () => {
     setUnitA(unitA)
 
     if(unitA && input && unitB){
+      if(unitA!==unitB){
       const found = calculate(input,unitA,unitB)
       setOutput(found)
+      }else{
+        setOutput(input)
+      }
     }
   }
 
@@ -76,18 +92,22 @@ const Converter = () => {
     setOutput("")    
     const unitB = e.target.value
     console.log(unitB,"unitB")
-    setUnitB(unitB)
-
+    setUnitB(unitB) // here you should pass unitB only because state is named as unitB ,, ** not much clear look  hook concept once 
+    
     if(unitA && input && unitB){
+      if(unitA!==unitB){
       const found = calculate(input,unitA,unitB)
       setOutput(found)
+    }else{
+      setOutput(input)
     }
+  }
   }
   const handleChange = (e) =>{
     const input1 = e.target.value
+        setInput(input1)
     const output2 = calculate(input1,unitA,unitB)
     setOutput(output2)
-    setInput(input1)
   }
     /*console.log(input1,"how")
     setInput(input1);
@@ -96,8 +116,9 @@ const Converter = () => {
   } */
   
   return (
-    
+   
     <div className="container">
+       {console.log("**",typeof(input))}
       <form className="pure-form"> 
         <fieldset>
           <MeasureSelect 
@@ -115,8 +136,6 @@ const Converter = () => {
             setUnitB={setUnitB} 
             setOutput={setOutput}
             setInput={setInput}
-            input={input}
-            calculate={calculate}
             />
           <Input
             handleChange={handleChange}

@@ -43,14 +43,14 @@ const Input = ({measurement,handleChange,changeUnitA,changeUnitB,unitA, unitB, i
 
     <div className="divselect">
     
-    {  measurement == "weight" ? selectFirst(Data.weights) 
-      :measurement == "length" ? selectFirst(Data.lengths)
-      :measurement == "temperature" ? selectFirst(Data.temperature)
+    {  measurement === "weight" ? selectFirst(Data.weights) 
+      :measurement === "length" ? selectFirst(Data.lengths)
+      :measurement === "temperature" ? selectFirst(Data.temperature)
       :selectFirst("")
     }
-    {  measurement == "weight" ? selectSecond(Data.weights) 
-      :measurement == "length" ? selectSecond(Data.lengths)
-      :measurement == "temperature" ? selectSecond(Data.temperature)
+    {  measurement === "weight" ? selectSecond(Data.weights) 
+      :measurement ==="length" ? selectSecond(Data.lengths)
+      :measurement === "temperature" ? selectSecond(Data.temperature)
       :selectSecond("")
     }
     

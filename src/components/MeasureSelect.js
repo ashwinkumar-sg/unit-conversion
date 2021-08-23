@@ -14,10 +14,8 @@ const MeasureSelect = ({ setMeasurement ,setInput,setOutput,setUnitA,setUnitB}) 
         <select className="select " name="measurements"  onChange={({target}) => onSelectChange(target.value)}>
           <option value="weight">Weight</option>
           <option value="length">Length</option>
-          <option value="temperature">temperature</option>
+          <option value="temperature">Temperature</option>
         </select>
-        
-        
     </div>
   )
 }

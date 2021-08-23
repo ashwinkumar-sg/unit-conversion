@@ -16,7 +16,7 @@ const calculate = (input,setOutput,unitA,unitB) =>{
         break 
       case "kilogram&ounce":
         output = input / 0.02835;
-        setOutput(output)
+        setOutput(output) 
         break 
       case "meter&feet":
         output = input * 3.281;
